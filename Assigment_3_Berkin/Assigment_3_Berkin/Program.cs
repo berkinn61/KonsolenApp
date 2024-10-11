@@ -5,11 +5,11 @@ class DatenErkennung
 {
     static void Main()
     {
-        while (true)
+        while (true) 
         {
-            Console.WriteLine("Geben Sie eine Zahl, ein Datum, true/false oder 'stop' zum Beenden ein:");
-            string eingabe = Console.ReadLine();
-            if (EingabeBeenden(eingabe))
+            Console.WriteLine("Geben Sie eine Zahl, ein Datum, true/false oder 'stop' zum Beenden ein:"); 
+            string eingabe = Console.ReadLine(); 
+            if (EingabeBeenden(eingabe)) 
                 break;
             BestimmeDatentyp(eingabe);
         }
@@ -25,19 +25,18 @@ class DatenErkennung
     }
     static void BestimmeDatentyp(string eingabe)
     {
-        if (bool.TryParse(eingabe, out bool boolWert))
+        if (bool.TryParse(eingabe, out bool boolWert)) 
         {
             Console.WriteLine($"Eingabe ist vom Typ Bool: {boolWert}");
         }
-        else if (int.TryParse(eingabe, out int intWert))
+        else if (int.TryParse(eingabe, out int intWert)) 
         {
             Console.WriteLine($"Eingabe ist vom Typ Integer: {intWert}");
         }
         else if (double.TryParse(eingabe, NumberStyles.Float, CultureInfo.InvariantCulture, out double doubleWert))
-        {
             Console.WriteLine($"Eingabe ist vom Typ Double: {doubleWert}");
         }
-        else if (DateTime.TryParse(eingabe, out DateTime datumWert))
+        else if (DateTime.TryParse(eingabe, out DateTime datumWert)) 
         {
             Console.WriteLine($"Eingabe ist vom Typ Datum: {datumWert.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))}");
         }
