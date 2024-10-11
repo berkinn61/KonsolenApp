@@ -5,51 +5,54 @@ class DatenErkennung
 {
     static void Main()
     {
-        while (true)
+        while (true) 
         {
             string eingabe = LeseBenutzereingabe("Geben Sie eine Zahl, ein Datum, true/false oder 'stop' zum Beenden ein:");
+            
             if (EingabeBeenden(eingabe)) break;
+          
 
             BestimmeDatentyp(eingabe);
         }
 
-        int zahl = LeseNatuerlicheZahl();
+        int zahl = LeseNatuerlicheZahl(); 
         int operation = LeseMathematischeOperation();
 
-        FuehreOperationAus(zahl, operation);
+        FuehreOperationAus(zahl, operation); 
     }
 
-    static string LeseBenutzereingabe(string nachricht)
+    static string LeseBenutzereingabe(string nachricht) 
     {
         Console.WriteLine(nachricht);
         return Console.ReadLine();
     }
 
-    static bool EingabeBeenden(string eingabe)
+    static bool EingabeBeenden(string eingabe) 
     {
-        if (eingabe.Equals("stop", StringComparison.OrdinalIgnoreCase))
+        if (eingabe.Equals("stop", StringComparison.OrdinalIgnoreCase)) 
         {
-            Console.WriteLine("Programm wird beendet.");
+            Console.WriteLine("Programm  wird beendet.");
             return true;
         }
         return false;
     }
 
-    static void BestimmeDatentyp(string eingabe)
+    static void BestimmeDatentyp(string eingabe) 
     {
-        if (bool.TryParse(eingabe, out bool boolWert))
+        if (bool.TryParse(eingabe, out bool boolWert)) 
         {
             Console.WriteLine($"Eingabe ist vom Typ Bool: {boolWert}");
         }
-        else if (int.TryParse(eingabe, out int intWert))
+        else if (int.TryParse(eingabe, out int intWert))  
         {
             Console.WriteLine($"Eingabe ist vom Typ Integer: {intWert}");
         }
-        else if (double.TryParse(eingabe, NumberStyles.Float, CultureInfo.InvariantCulture, out double doubleWert))
+        else if (double.TryParse(eingabe, NumberStyles.Float, CultureInfo.InvariantCulture, out double doubleWert)
         {
-            Console.WriteLine($"Eingabe ist vom Typ Double: {doubleWert}");
+            Console.WriteLine($"Eingabe ist vom Typ Double: {doubleWert}"); 
         }
         else if (DateTime.TryParse(eingabe, out DateTime datumWert))
+        {
         {
             Console.WriteLine($"Eingabe ist vom Typ Datum: {datumWert.ToString("d", CultureInfo.CreateSpecificCulture("de-DE"))}");
         }
@@ -66,13 +69,11 @@ class DatenErkennung
         {
             string eingabe = LeseBenutzereingabe("Geben Sie eine natürliche Zahl ein:");
         } while (!int.TryParse(eingabe, out zahl) || zahl < 1);
-        return zahl;
     }
 
     static int LeseMathematischeOperation()
     {
-        int operation;
-        do
+        int operation; 
         {
             string eingabe = LeseBenutzereingabe("Geben Sie eine Zahl zwischen 1 und 3 ein, um eine mathematische Operation auszuwählen:\n1) Quadrat\n2) Wurzel\n3) Fakultät");
         } while (!int.TryParse(eingabe, out operation) || operation < 1 || operation > 3);
@@ -103,4 +104,4 @@ class DatenErkennung
         if (n == 0 || n == 1) return 1;
         return n * Fakultet(n - 1);
     }
-}
+} 
