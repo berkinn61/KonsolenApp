@@ -3,38 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Objektorientierung
+using static System.Runtime.InteropServices.JavaScript.JSType;
+ 
+namespace Objektorientierung;
+ 
+class Cat : Animal
 {
-    class Cat
+    public string Name { get; set; }
+    public DateTime BirthDate { get; set; }
+ 
+    public Cat(string name, DateTime birthDate, string color) : base(color)
     {
-        private string _Color;
-        private DateTime _BirthDate;
-
-        public string Color
+        Name = name;
+        BirthDate = birthDate;
+    }
+ 
+    public int Age
+    {
+        get
         {
-            get { return _Color; }
-            set
-            {
-                if (_Color == value) return;
-                _Color = value;
-            }
+            return DateTime.Now.Year - BirthDate.Year;
         }
-
-        public int Age
+    }
+}
+ 
+class Tierheim
+{
+    private List<Cat> cats = new List<Cat>();
+ 
+    public void AddCat(Cat cat)
+    {
+        cats.Add(cat);
+    }
+ 
+    public int CatCount
+    {
+        get { return cats.Count; }
+    }
+ 
+    public void ShowAllCats()
+    {
+        foreach (var cat in cats)
         {
-            get
-            {
-                var today = DateTime.Today;
-                int age = today.Year - _BirthDate.Year;
-                if (_BirthDate.Date > today.AddYears(-age)) age--;
-                return age;
-            }
-        }
-
-        public Cat(DateTime birthdate)
-        {
-            _BirthDate = birthdate;
+            Console.WriteLine($"Name: {cat.Name}, Farbe: {cat.Color}, Alter: {cat.Age} Jahre");
         }
     }
 }

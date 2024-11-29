@@ -1,9 +1,23 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
 using Objektorientierung;
-
-Console.WriteLine("Hello, World!");
-
-Cat myCat = new Cat(new DateTime(2007, 11, 11));
-myCat.Color = "black";
-Console.WriteLine("The color of my Cat is " + myCat.Color);
-Console.WriteLine("The age of my Cat is " + myCat.Age + " years.");
+ 
+class Program
+{
+    static void Main()
+    {
+        Tierheim tierheim = new Tierheim();
+ 
+        Cat cat1 = new Cat("Kitty", new DateTime(2015, 12, 09), "black");
+        Cat cat2 = new Cat("Max", new DateTime(2019, 12, 11), "orange");
+        Cat cat3 = new Cat("Hans", new DateTime(2024, 01, 12), "gray");
+ 
+        tierheim.AddCat(cat1);
+        tierheim.AddCat(cat2);
+        tierheim.AddCat(cat3);
+ 
+        Console.WriteLine($"Anzahl der Katzen im Tierheim: {tierheim.CatCount}");
+        tierheim.ShowAllCats();
+ 
+        Console.ReadLine();
+    }
+}
