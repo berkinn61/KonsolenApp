@@ -8,9 +8,9 @@ namespace Objektorientierung
 {
     class Animal
     {
-        public string? Color { get; set; }
+        public string Color { get; set; }
  
-        public Animal(string? color)
+        public Animal(string color)
         {
             Color = color;
         }
