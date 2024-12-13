@@ -6,19 +6,16 @@ using System.Threading.Tasks;
  
 namespace Objektorientierung
 {
-    abstract class Animal : Lebewesen
+    public class Animal : Lebewesen
     {
         public int Beine { get; set; }
-        public string TierTyp { get; set; }
-        public Animal(string name, DateTime birthDate, string color, int beine, string tierTyp) : base(birthDate, color, name)
+
+        public Animal(string name, DateTime geburtsdatum) : base(name, geburtsdatum)
         {
-            TierTyp = tierTyp;
-            Beine = beine;
         }
-        public abstract void gibTypischenLautVonDir();
-        public override string ToString()
+        public virtual void GibTypischenLautVonDir()
         {
-            return Name;
+            Console.WriteLine("Laut des Tieres.");
         }
     }
 }

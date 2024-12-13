@@ -9,18 +9,17 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
  
 namespace Objektorientierung
 {
-    class Cat : Animal
+    public class Cat : Animal
     {
-        public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Katze")
+        public string? Color { get; set; }
+        public Cat(string name, string color, DateTime birthdate) : base(name, birthdate)
         {
+            Color = color;
+            Beine = 4;
         }
-        public override string ToString()
+        public override void GibTypischenLautVonDir()
         {
-            return $"Name: {Name}, Farbe: {Color}, Alter: {Age}, Beine: {Beine}";
-        }
-        public override void gibTypischenLautVonDir()
-        {
-            Console.WriteLine("Meowwwwwww!");
+            Console.WriteLine($"{Name} sagt: Meowwww");
         }
     }
 }
