@@ -1,6 +1,4 @@
-﻿using Objektorientierung;
-
-namespace TestTierheim
+﻿namespace Objektorientierung
 {
     public class Tierheim
     {

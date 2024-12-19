@@ -6,10 +6,10 @@ using System.Threading.Tasks;
  
 namespace Objektorientierung
 {
-    public class Animal : Lebewesen
+public class Animal : Lebewesen
     {
         public int Beine { get; set; }
-
+ 
         public Animal(string name, DateTime geburtsdatum) : base(name, geburtsdatum)
         {
         }
@@ -19,5 +19,6 @@ namespace Objektorientierung
         }
     }
 }
+
 
  
