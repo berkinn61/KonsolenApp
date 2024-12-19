@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
- 
+
 namespace Objektorientierung
 {
-    class Cat : Animal
+    class Dog : Animal
     {
-        public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Katze")
+        public Dog(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Hund")
         {
         }
         public override string ToString()
@@ -20,8 +19,7 @@ namespace Objektorientierung
         }
         public override void gibTypischenLautVonDir()
         {
-            Console.WriteLine("Meowwwwwww!");
+            Console.WriteLine("Wufffffff!");
         }
     }
 }
- 
