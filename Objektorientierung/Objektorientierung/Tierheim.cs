@@ -3,12 +3,12 @@
     public class Tierheim
     {
         private List<Animal> _animals;
-
+ 
         public Tierheim()
         {
             _animals = new List<Animal>();
         }
-
+ 
         public void AddAnimal(Animal animal)
         {
             _animals.Add(animal);
@@ -44,6 +44,16 @@
             {
                 Console.WriteLine($"Katze: Name = {cat.Name}, Farbe = {cat.Color}, Alter = {cat.Age} Jahre");
             }
+        }
+        public double GetAverageAge()
+        {
+            if (_animals.Count == 0)
+            {
+                return 0; // ohne Division durch Null
+            }
+ 
+            double totalAge = _animals.Sum(animal => animal.Age);
+            return totalAge / _animals.Count;
         }
     }
 }
