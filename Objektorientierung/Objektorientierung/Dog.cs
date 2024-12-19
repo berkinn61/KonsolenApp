@@ -8,18 +8,17 @@ using System.Xml.Linq;
 
 namespace Objektorientierung
 {
-    class Dog : Animal
+    public class Dog : Animal
     {
-        public Dog(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Hund")
+        public string? Color { get; set; }
+        public Dog(string name, string color, DateTime birthdate) : base(name, birthdate)
         {
+            Color = color;
+            Beine = 4;
         }
-        public override string ToString()
+        public override void GibTypischenLautVonDir()
         {
-            return $"Name: {Name}, Farbe: {Color}, Alter: {Age}, Beine: {Beine}";
-        }
-        public override void gibTypischenLautVonDir()
-        {
-            Console.WriteLine("Wufffffff!");
+            Console.WriteLine($"{Name} sagt: Wuff");
         }
     }
 }

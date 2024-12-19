@@ -8,17 +8,27 @@ using System.Xml.Linq;
 
 namespace Objektorientierung
 {
-    class Lebewesen
+    public class Lebewesen
     {
-        public string Color { get; set; }
         public string Name { get; set; }
-        public DateTime BirthDate { get; set; }
-        public int Age { get { return (DateTime.Now.Year - BirthDate.Year); } }
-        public Lebewesen(DateTime birthDate, string color, string name)
+        public string? Color { get; set; }
+        private DateTime Birthdate { get; }
+
+        public Lebewesen(string name, DateTime birthdate, string? color = null)
         {
-            Color = color;
-            BirthDate = birthDate;
             Name = name;
+            Birthdate = birthdate;
+            Color = color;
+        }
+        public int Age
+        {
+            get
+            {
+                var today = DateTime.Today;
+                int age = today.Year - Birthdate.Year;
+                if (Birthdate > today.AddYears(-age)) age--;
+                return age;
+            }
         }
     }
 }

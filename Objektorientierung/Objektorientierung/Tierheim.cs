@@ -1,35 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Objektorientierung;
 
-namespace Objektorientierung
+namespace TestTierheim
 {
-    class Tierheim
+    public class Tierheim
     {
-        public List<Animal> tiere = new List<Animal>();
+        private List<Animal> _animals;
+
+        public Tierheim()
+        {
+            _animals = new List<Animal>();
+        }
+
         public void AddAnimal(Animal animal)
         {
-            tiere.Add(animal);
-            Console.WriteLine($"\nEs wurde neues {animal.TierTyp} {animal} hinzugefügt!\n");
+            _animals.Add(animal);
         }
-        public void ShowAnimals()
+        public void AddCat(Cat cat)
         {
-            int index = 1;
-            foreach (var cat in tiere)
+            _animals.Add(cat);
+        }
+        public void AddDog(Dog dog)
+        {
+            _animals.Add(dog);
+        }
+        public List<Animal> GetAllAnimals()
+        {
+            return _animals;
+        }
+        public int GetAnimalCount()
+        {
+            return _animals.Count;
+        }
+        public int NumberOfCats()
+        {
+            return _animals.OfType<Cat>().Count();
+        }
+        public int NumberOfDogs()
+        {
+            return _animals.OfType<Dog>().Count();
+        }
+        public void ListCatsByAge()
+        {
+            var cats = _animals.OfType<Cat>();
+            foreach (var cat in cats)
             {
-                Console.WriteLine(cat);
+                Console.WriteLine($"Katze: Name = {cat.Name}, Farbe = {cat.Color}, Alter = {cat.Age} Jahre");
             }
-        }
-        public int NumberOfCats
-        {
-            get { return tiere.Select(a => a.GetType() == typeof(Cat)).Count(); }
-        }
-
-        public int NumberOfDogs
-        {
-            get { return tiere.Select(a => a.GetType() == typeof(Dog)).Count(); }
         }
     }
 }
