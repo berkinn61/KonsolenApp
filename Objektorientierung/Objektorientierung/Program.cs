@@ -4,11 +4,11 @@ using Objektorientierung;
 Tierheim tierheim = new Tierheim();
 List<Animal> cat = new List<Animal>();
  
-tierheim.AddAnimal(new Cat("Mario", "rot", new DateTime(2020, 3, 19)));
-tierheim.AddAnimal(new Cat("Luigi", "grün", new DateTime(2019, 7, 25)));
+tierheim.AddAnimal((Animal)new Cat("Mario", "rot", new DateTime(2020, 3, 19)));
+tierheim.AddAnimal((Animal)new Cat("Luigi", "grün", new DateTime(2019, 7, 25)));
  
-tierheim.AddAnimal(new Dog("Kitten", "braun", new DateTime(2017, 6, 5)));
-tierheim.AddAnimal(new Dog("Puppy", "schwarz", new DateTime(2021, 1, 20)));
+tierheim.AddAnimal((Animal)new Dog("Kitten", "braun", new DateTime(2017, 6, 5)));
+tierheim.AddAnimal((Animal)new Dog("Puppy", "schwarz", new DateTime(2021, 1, 20)));
  
  
 Console.WriteLine($"Gesamte Tieranzahl im Tierheim: {tierheim.GetAnimalCount()}");

@@ -13,11 +13,11 @@
         {
             _animals.Add(animal);
         }
-        public void AddCat(Cat cat)
+        public void AddAnimal(Cat cat)
         {
             _animals.Add(cat);
         }
-        public void AddDog(Dog dog)
+        public void AddAnimal(Dog dog)
         {
             _animals.Add(dog);
         }
