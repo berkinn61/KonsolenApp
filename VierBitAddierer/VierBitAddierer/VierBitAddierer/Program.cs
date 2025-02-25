@@ -52,9 +52,9 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Geben Sie die erste 4-Bit-Zahl ein (z. B. 1010): ");
+        Console.Write("Geben Sie die erste 4-Bit-Zahl ein: ");
         string bin1 = Console.ReadLine();
-        Console.Write("Geben Sie die zweite 4-Bit-Zahl ein (z. B. 0110): ");
+        Console.Write("Geben Sie die zweite 4-Bit-Zahl ein: ");
         string bin2 = Console.ReadLine();
 
         if (bin1.Length != 4 || bin2.Length != 4 || !IsBinary(bin1) || !IsBinary(bin2))
